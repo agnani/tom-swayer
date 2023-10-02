@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ts-webapp
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      ts: web
+  template:
+    metadata:
+      labels:
+        ts: web
+    spec:
+      containers:
+        - name: ts-container
+          image: my-project
+          imagePullPolicy: Never
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ts-entrypoint
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    ts: web
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30001

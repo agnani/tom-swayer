@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.companyname</groupId>
+	<artifactId>my-project</artifactId>
+	<version>1.0.0</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.14</version>
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.tomsawyer.perspectives</groupId>
+				<artifactId>tspj-dependencies-parent</artifactId>
+				<version>11.1.0.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<!--Spring Boot-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-indexer</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<!--Perspectives-->
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>ts-perspectives-dev</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>ts-perspectives-desktop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>ts-perspectives-web-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>tsp-authentication</artifactId>
+		</dependency>
+
+		<!--Perspectives web-->
+		<dependency>
+			<groupId>net.sf.advanced-gwt</groupId>
+			<artifactId>advanced-gwt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.gwtproject</groupId>
+			<artifactId>gwt-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>ts-perspectives-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.tomsawyer.perspectives</groupId>
+			<artifactId>ts-perspectives-gwt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+		</dependency>
+
+		<!--Integrators-->
+		<dependency>
+			<groupId>com.tomsawyer.integrators</groupId>
+			<artifactId>ts-integrator-excel</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<layout>ZIP</layout>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

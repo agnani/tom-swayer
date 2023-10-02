@@ -1,0 +1,15 @@
+FROM amazoncorretto:17-alpine-jdk
+
+MAINTAINER Tom Sawyer Software <support@tomsawyer.com>
+
+RUN mkdir /opt/TomSawyer
+
+RUN apk add --no-cache msttcorefonts-installer fontconfig
+RUN update-ms-fonts
+
+ADD temp /opt/TomSawyer/
+
+EXPOSE 8080
+
+WORKDIR /opt/TomSawyer
+ENTRYPOINT ["java","-Xms512m","-Xmx3G","-jar","my-project-1.0.0.jar","--debug"]

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script type="text/javascript">
+		function validateForm()
+		{
+			var x = document.forms["check"]["username"].value;
+			if (x==null || x=="")
+			{
+				document.getElementById('errMsg').innerHTML= "Please enter your user name<p>";
+				return false;
+			}
+		}
+
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Tom Sawyer Software</title>
+	<link rel="icon" href="https://support.tomsawyer.com/assets/favicon.ico">
+	<link rel="shortcut icon" href="https://support.tomsawyer.com/assets/favicon.ico">
+	<style type="text/css">
+		html {
+			overflow: -moz-scrollbars-vertical;
+			overflow-y: scroll;
+			overflow-x: auto;
+		}
+
+		.noSpacing,body,table {
+			padding: 0px;
+			margin: 0px;
+		}
+
+		body,p,td,input,
+		.pageContainer {
+			font-family: Arial, Helvetica, Verdana, sans-serif;
+			font-size: 12px;
+			color: #000000;
+			line-height: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0px;
+		}
+
+		img {
+			border: 0px;
+		}
+
+		h1 {
+			padding: 0px;
+			margin: 5px 0px 40px 40px;
+			font-size: 20px;
+			font-weight: bold;
+			color: #336699;
+		}
+
+		.pageContainer {
+			width: 1000px;
+			margin: 0px auto;
+			position: relative;
+		}
+
+		.menuContainer {
+			position: relative;
+			width: 818px;
+			margin-left: 12px;
+			z-index: 100;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		.headerLogo {
+			position: relative;
+			top: 5px;
+			left: 35px;
+			height: 124px;
+			width: 85px;
+		}
+
+		.headerline {
+			background-color: #994015;
+			height: 4px;
+		}
+
+		.errMsg {
+			color: #d04437;
+		}
+
+	</style>
+</head>
+
+<body>
+<div id="pageContainer" class="pageContainer">
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tbody>
+		<tr>
+			<td class="headerlinkcell" valign="bottom">
+				<div class="headerLogo"><a href="https://www.tomsawyer.com"><img
+					src="logo.tomsawyer.png" alt="Tom Sawyer"></a></div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="headerline">&nbsp;</div>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p>
+	<form action="application.html" name="check" method="get"
+		onsubmit="return validateForm()">
+		<h1 class="overtitle">Tom Sawyer Perspectives Demonstration</h1>
+		<table cellspacing="0" cellpadding="6" border="0">
+			<tbody>
+			<tr>
+				<td align="left" style="padding-left: 40px">User Name:</td>
+				<td>
+					<input type="text" name="username" maxlength="64" size="39"
+						autofocus="">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<div class="errMsg" id="errMsg"></div>
+					<input type="Submit" name="op" value="Sign In" class="hotcell_r">
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+</body>
+</html>

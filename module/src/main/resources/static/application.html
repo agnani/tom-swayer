@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+		"http://www.w3.org/TR/html4/loose.dtd">
+<html style="height:100%">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>Tom Sawyer Perspectives Previewer</title>
+		<link rel="icon" href="https://support.tomsawyer.com/assets/favicon.ico">
+		<link rel="shortcut icon" href="https://support.tomsawyer.com/assets/favicon.ico">
+
+		<link type="text/css" rel="styleSheet" href="tsperspectives/jquery-ui.css">
+		<link type="text/css" rel="styleSheet" href="tsperspectives/TSQueryBuilder.css">
+	</head>
+
+	<body style="height:100%">
+		<script type="text/javascript" src="tsperspectives/jquery-3.6.1.min.js"></script>
+		<script type="text/javascript" src="tsperspectives/jquery-ui.js"></script>
+		<script type="text/javascript" src="tsperspectives/tsperspectives.nocache.js"></script>
+		<script type="text/javascript" src="tsperspectives/highstock.js"></script>
+		<script type="text/javascript" src="tsperspectives/exporting.js"></script>
+		<script type="text/javascript" src="tsperspectives/TSChart.js"></script>
+		<script type="text/javascript" src="tsperspectives/dojo/dojo/dojo.js"></script>
+		<script type="text/javascript" src="tsperspectives/TSHovering.js"></script>
+		<script type="text/javascript" src="tsperspectives/TSButtonTooltip.js"></script>
+		<script type="text/javascript" src="tsperspectives/TSQueryBuilder.js"></script>
+
+		<div class="tsProject"
+			id="my-project"
+			file="project/Module.tsp"
+			onready="onPerspectivesProjectReady">
+		</div>
+
+		<div class="tsModel"
+			id="my-projectModel"
+			project="my-project"
+			module="Network">
+		</div>
+
+		<div class="tsIntegrator"
+			id="excelIntegrator_0"
+			name="Network Excel Integrator"
+			project="my-project"
+			model="my-projectModel"
+			module="Network"
+			file="data/Tom Swayer DATA.xlsx">
+		</div>
+
+
+		<div class="tsDrawingView"
+			id="tsView_0"
+			name="Network Map"
+			project="my-project"
+			model="my-projectModel"
+			module="Network">
+		</div>
+
+		<!--Default View Layout-->
+		<div class="tsTabPanel"
+			id="tsTabPanel_0"
+			tabIDs="tsView_0"
+			style="width:100%; height:100%;">
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		var updateCommand = {
+			"command": "Update",
+			"onsuccess": "onPerspectivesCommandSuccess",
+			"onfailure": "onPerspectivesCommandFailure",
+			"data": {
+				"project": "my-project",
+				"module": "Network",
+				"integratorIDs": [
+					"excelIntegrator_0"
+				]
+			}
+		};
+
+		function onPerspectivesProjectReady()
+		{
+			invokePerspectivesCommand(updateCommand);
+		}
+
+		function onPerspectivesCommandSuccess(successfulCommand, commandResult)
+		{
+			console.log("Perspectives command: " +
+				successfulCommand.command +
+				" completed successfully with a result of " + commandResult);
+		}
+
+		function onPerspectivesCommandFailure(failedCommand, message, callstack)
+		{
+			console.log("Perspectives command " + failedCommand.commmand +
+				" failed. Reason is: " + message);
+			console.log(callstack);
+		}
+	</script>
+</html>
