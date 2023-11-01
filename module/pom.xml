@@ -14,6 +14,80 @@
 		<version>2.7.14</version>
 	</parent>
 
+	<profiles>
+		<profile>
+			<id>development-profile</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.tomsawyer.licensing</groupId>
+						<artifactId>ts-maven-licensing-plugin</artifactId>
+						<version>11.1.0.RELEASE</version>
+						<executions>
+							<execution>
+								<id>setup-licensing</id>
+								<goals>
+									<goal>setup</goal>
+								</goals>
+								<configuration>
+									<licenseServerURL>https://server.licensing.tomsawyer.com/OGI1ZNUJKO5K4CUMQ5BB4BUVC</licenseServerURL>
+									<licenseName>DEV_LICENSE_KEY</licenseName>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>production-profile</id>
+			<dependencies>
+				<dependency>
+					<groupId>com.tomsawyer.perspectives</groupId>
+					<artifactId>ts-perspectives-dep</artifactId>
+					<version>11.1.0.RELEASE</version>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.tomsawyer.licensing</groupId>
+						<artifactId>ts-maven-licensing-plugin</artifactId>
+						<version>11.1.0.RELEASE</version>
+						<executions>
+							<execution>
+								<id>setup-licensing</id>
+								<goals>
+									<goal>setup</goal>
+								</goals>
+								<configuration>
+									<licenseServerURL>https://server.licensing.tomsawyer.com/OGI1ZNUJKO5K4CUMQ5BB4BUVC</licenseServerURL>
+									<licenseName>DEV_LICENSE_KEY</licenseName>
+								</configuration>
+							</execution>
+							<execution>
+								<id>deployer-licensing</id>
+								<goals>
+									<goal>deployer</goal>
+								</goals>
+								<configuration>
+									<developmentLicenseServerURL>https://server.licensing.tomsawyer.com/OGI1ZNUJKO5K4CUMQ5BB4BUVC</developmentLicenseServerURL>
+									<developmentLicenseName>DEV_LICENSE_KEY</developmentLicenseName>
+									<deploymentLicenseServerURL>https://server.licensing.tomsawyer.com/OGI1ZNUJKO5K4CUMQ5BB4BUVC</deploymentLicenseServerURL>
+									<deploymentLicenseName>DEP_LICENSE_KEY</deploymentLicenseName>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
